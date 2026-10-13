@@ -22,6 +22,7 @@ from opentelemetry.util.genai.types import (
 )
 from reference_shared import (
     flush_and_shutdown,
+    inference_duration_view,
     mock_server_host_port,
     reference_meter,
     reference_tracer,
@@ -529,7 +530,7 @@ def main():
     os.environ["OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT"] = "SPAN_AND_EVENT"
     os.environ["OTEL_INSTRUMENTATION_GENAI_EMIT_EVENT"] = "true"
 
-    tp, lp, mp = setup_otel()
+    tp, lp, mp = setup_otel(metric_views=(inference_duration_view(),))
     with TemporaryDirectory() as upload_dir:
         completion_hook = UploadCompletionHook(base_path=upload_dir)
         handler = get_telemetry_handler(
