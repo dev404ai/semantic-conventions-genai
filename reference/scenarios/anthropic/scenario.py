@@ -10,7 +10,7 @@ from tempfile import TemporaryDirectory
 
 import anthropic
 from opentelemetry.trace import SpanKind, StatusCode
-from opentelemetry.util.genai._upload.completion_hook import UploadCompletionHook
+from opentelemetry.util.genai.completion_hook import load_completion_hook
 from opentelemetry.util.genai.handler import get_telemetry_handler
 from opentelemetry.util.genai.types import (
     Blob,
@@ -532,7 +532,9 @@ def main():
 
     tp, lp, mp = setup_otel(metric_views=(inference_duration_view(),))
     with TemporaryDirectory() as upload_dir:
-        completion_hook = UploadCompletionHook(base_path=upload_dir)
+        os.environ["OTEL_INSTRUMENTATION_GENAI_COMPLETION_HOOK"] = "upload"
+        os.environ["OTEL_INSTRUMENTATION_GENAI_UPLOAD_BASE_PATH"] = upload_dir
+        completion_hook = load_completion_hook()
         handler = get_telemetry_handler(
             tracer_provider=tp,
             meter_provider=mp,
@@ -547,7 +549,10 @@ def main():
             run_chat_with_image_input(handler)
             run_create_agent()
         finally:
-            completion_hook.shutdown(timeout_sec=5)
+            # The safe wrapper returned by load_completion_hook() does not
+            # expose shutdown, so flush the wrapped upload hook before the
+            # temporary directory is removed.
+            completion_hook._wrapped.shutdown(timeout_sec=5)
 
     flush_and_shutdown(tp, lp, mp)
 
