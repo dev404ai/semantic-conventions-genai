@@ -137,15 +137,8 @@ Instrumentations MUST follow [JSON schema](/model/gen-ai/gen-ai-input-messages.j
 
 When the attribute is recorded on events, it MUST be recorded in structured form. When recorded on spans, it MAY be recorded as a JSON string if structured format is not supported and SHOULD be recorded in structured form otherwise.
 
-**[7] `gen_ai.input.messages_ref`:** The URI identifies an external representation of the complete value of
-`gen_ai.input.messages`. It MAY be recorded together with
-`gen_ai.input.messages`.
-
-Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-the storage provider, content format or storage outcome, and need to be
-given access to the storage separately to resolve it. The URI does not
-indicate whether storing the content succeeded or whether the content
-remains available.
+**[7] `gen_ai.input.messages_ref`:** The presence of this attribute does not indicate whether storing the
+content succeeded or whether the content remains available.
 
 It is NOT RECOMMENDED to embed credentials, such as signed URL
 query parameters, in the URI. Access to the stored content SHOULD be
@@ -209,15 +202,8 @@ Instrumentations MUST follow [JSON schema](/model/gen-ai/gen-ai-output-messages.
 
 When the attribute is recorded on events, it MUST be recorded in structured form. When recorded on spans, it MAY be recorded as a JSON string if structured format is not supported and SHOULD be recorded in structured form otherwise.
 
-**[17] `gen_ai.output.messages_ref`:** The URI identifies an external representation of the complete value of
-`gen_ai.output.messages`. It MAY be recorded together with
-`gen_ai.output.messages`.
-
-Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-the storage provider, content format or storage outcome, and need to be
-given access to the storage separately to resolve it. The URI does not
-indicate whether storing the content succeeded or whether the content
-remains available.
+**[17] `gen_ai.output.messages_ref`:** The presence of this attribute does not indicate whether storing the
+content succeeded or whether the content remains available.
 
 It is NOT RECOMMENDED to embed credentials, such as signed URL
 query parameters, in the URI. Access to the stored content SHOULD be
@@ -345,15 +331,8 @@ Instrumentations MUST follow [JSON schema](/model/gen-ai/gen-ai-system-instructi
 
 When the attribute is recorded on events, it MUST be recorded in structured form. When recorded on spans, it MAY be recorded as a JSON string if structured format is not supported and SHOULD be recorded in structured form otherwise.
 
-**[34] `gen_ai.system_instructions_ref`:** The URI identifies an external representation of the complete value of
-`gen_ai.system_instructions`. It MAY be recorded together with
-`gen_ai.system_instructions`.
-
-Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-the storage provider, content format or storage outcome, and need to be
-given access to the storage separately to resolve it. The URI does not
-indicate whether storing the content succeeded or whether the content
-remains available.
+**[34] `gen_ai.system_instructions_ref`:** The presence of this attribute does not indicate whether storing the
+content succeeded or whether the content remains available.
 
 It is NOT RECOMMENDED to embed credentials, such as signed URL
 query parameters, in the URI. Access to the stored content SHOULD be
@@ -407,15 +386,8 @@ Instrumentations MUST follow [JSON schema](/model/gen-ai/gen-ai-tool-definitions
 
 When the attribute is recorded on events, it MUST be recorded in structured form. When recorded on spans, it MAY be recorded as a JSON string if structured format is not supported and SHOULD be recorded in structured form otherwise.
 
-**[40] `gen_ai.tool.definitions_ref`:** The URI identifies an external representation of the complete value of
-`gen_ai.tool.definitions`. It MAY be recorded together with
-`gen_ai.tool.definitions`.
-
-Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-the storage provider, content format or storage outcome, and need to be
-given access to the storage separately to resolve it. The URI does not
-indicate whether storing the content succeeded or whether the content
-remains available.
+**[40] `gen_ai.tool.definitions_ref`:** The presence of this attribute does not indicate whether storing the
+content succeeded or whether the content remains available.
 
 It is NOT RECOMMENDED to embed credentials, such as signed URL
 query parameters, in the URI. Access to the stored content SHOULD be

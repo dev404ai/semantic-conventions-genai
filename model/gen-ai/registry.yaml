@@ -923,15 +923,8 @@ attributes:
     type: string
     brief: An absolute URI identifying the system instructions in external storage.
     note: |
-      The URI identifies an external representation of the complete value of
-      `gen_ai.system_instructions`. It MAY be recorded together with
-      `gen_ai.system_instructions`.
-
-      Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-      the storage provider, content format or storage outcome, and need to be
-      given access to the storage separately to resolve it. The URI does not
-      indicate whether storing the content succeeded or whether the content
-      remains available.
+      The presence of this attribute does not indicate whether storing the
+      content succeeded or whether the content remains available.
 
       It is NOT RECOMMENDED to embed credentials, such as signed URL
       query parameters, in the URI. Access to the stored content SHOULD be
@@ -1002,15 +995,8 @@ attributes:
     type: string
     brief: An absolute URI identifying the input messages in external storage.
     note: |
-      The URI identifies an external representation of the complete value of
-      `gen_ai.input.messages`. It MAY be recorded together with
-      `gen_ai.input.messages`.
-
-      Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-      the storage provider, content format or storage outcome, and need to be
-      given access to the storage separately to resolve it. The URI does not
-      indicate whether storing the content succeeded or whether the content
-      remains available.
+      The presence of this attribute does not indicate whether storing the
+      content succeeded or whether the content remains available.
 
       It is NOT RECOMMENDED to embed credentials, such as signed URL
       query parameters, in the URI. Access to the stored content SHOULD be
@@ -1068,15 +1054,8 @@ attributes:
     type: string
     brief: An absolute URI identifying the output messages in external storage.
     note: |
-      The URI identifies an external representation of the complete value of
-      `gen_ai.output.messages`. It MAY be recorded together with
-      `gen_ai.output.messages`.
-
-      Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-      the storage provider, content format or storage outcome, and need to be
-      given access to the storage separately to resolve it. The URI does not
-      indicate whether storing the content succeeded or whether the content
-      remains available.
+      The presence of this attribute does not indicate whether storing the
+      content succeeded or whether the content remains available.
 
       It is NOT RECOMMENDED to embed credentials, such as signed URL
       query parameters, in the URI. Access to the stored content SHOULD be
@@ -1091,15 +1070,8 @@ attributes:
     type: string
     brief: An absolute URI identifying the tool definitions in external storage.
     note: |
-      The URI identifies an external representation of the complete value of
-      `gen_ai.tool.definitions`. It MAY be recorded together with
-      `gen_ai.tool.definitions`.
-
-      Consumers MUST treat the URI as opaque: they MUST NOT parse it to derive
-      the storage provider, content format or storage outcome, and need to be
-      given access to the storage separately to resolve it. The URI does not
-      indicate whether storing the content succeeded or whether the content
-      remains available.
+      The presence of this attribute does not indicate whether storing the
+      content succeeded or whether the content remains available.
 
       It is NOT RECOMMENDED to embed credentials, such as signed URL
       query parameters, in the URI. Access to the stored content SHOULD be
