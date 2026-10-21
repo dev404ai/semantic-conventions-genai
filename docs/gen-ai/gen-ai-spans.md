@@ -981,16 +981,16 @@ and `gen_ai.tool.definitions` directly on telemetry signals.
 If such a hook is supported and explicitly configured, instrumentations SHOULD
 invoke it regardless of the span sampling decision with:
 
-- the instructions, [inputs](/model/gen-ai/gen-ai-input-messages.json),
+- the [instructions](/model/gen-ai/gen-ai-system-instructions.json), [inputs](/model/gen-ai/gen-ai-input-messages.json),
   [outputs](/model/gen-ai/gen-ai-output-messages.json), and
   [tool definitions](/model/gen-ai/gen-ai-tool-definitions.json) objects using
   formats defined in this convention and before they are serialized to JSON;
-- the span and/or event instance
+- the span instance
 
 The hook SHOULD receive the same instructions, inputs, outputs, and tool definitions that the
 instrumentation would record in these attributes.
 
-The hook implementation SHOULD be able to enrich and modify provided span, event, instructions,
+The hook implementation SHOULD be able to enrich and modify provided span, instructions,
 message, and tool definition objects.
 
 If instrumentation is configured to also record `gen_ai.system_instructions`,
